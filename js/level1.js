@@ -23,7 +23,7 @@ var level1State = {
 
      platforms.setAll("body.immovable", true);
 
-     player = game.add.sprite(32, game.world.height - 150, "player");
+     player = game.add.sprite(32, game.world.height - 150, "exterminator");
 
      game.physics.arcade.enable(player);
 
@@ -39,23 +39,29 @@ var level1State = {
      healthBar.width = game.global.lives / game.global.maxLives * 200;
      cursors = game.input.keyboard.createCursorKeys();
 
-     stars = game.add.group();
-     stars.enableBody = true;
-
-     for (let i = 0; i < 12; i++) {
-       star = stars.create(i * 70, -22, "star");
-       star.body.gravity.y = 6;
-
-       star.body.bounce.y = 0.7 + Math.random() * 0.3;
-
-     }
-     baddie = game.add.sprite(600, 350, "baddie");
+     baddie = game.add.sprite(600, 350, "ant");
      game.physics.arcade.enable(baddie);
      baddie.body.gravity.y = 300;
      baddie.body.bounce.y = 0.2;
      baddie.body.collideWorldBounds = true;
      baddie.animations.add('left', [0, 1], 10, true);
      baddie.animations.add('right', [2, 3], 10, true);
+
+     baddie2 = game.add.sprite(200, 350, "bee");
+     game.physics.arcade.enable(baddie2);
+     baddie2.body.gravity.y = 300;
+     baddie2.body.bounce.y = 0.2;
+     baddie2.body.collideWorldBounds = true;
+     baddie2.animations.add('left', [0, 1], 10, true);
+     baddie2.animations.add('right', [2, 3], 10, true);
+
+     baddie3 = game.add.sprite(400, 550, "snail");
+     game.physics.arcade.enable(baddie3);
+     baddie3.body.gravity.y = 300;
+     baddie3.body.bounce.y = 0.2;
+     baddie3.body.collideWorldBounds = true;
+     baddie3.animations.add('left', [0, 1], 10, true);
+     baddie3.animations.add('right', [2, 3], 10, true);
 
      scoreText = game.add.text(16, 16, "Score: " + game.global.score, {
        fontSize: '32px',

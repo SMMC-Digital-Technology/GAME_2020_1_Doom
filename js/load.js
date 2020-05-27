@@ -11,6 +11,8 @@ var loadState = {
     game.load.image("ant", "assets/ant.png");
     game.load.image("snail", "assets/snail.png");
     game.load.image("exterminator", "assets/Exterminator.png");
+    game.load.image("platform", "assets/platform.png");
+    
 
           // load all assets
    },

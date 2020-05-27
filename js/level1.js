@@ -8,7 +8,7 @@
 var level1State = {
 
    create: function() {
-     game.add.image(0, 0, "sky");
+     game.add.image(0, 0, "exterminator");
 
      platforms = game.add.group();
 

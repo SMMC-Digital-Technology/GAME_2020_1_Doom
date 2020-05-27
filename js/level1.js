@@ -10,18 +10,18 @@ var level1State = {
    create: function() {
      game.add.image(0, 0, "exterminator");
 
-     platforms = game.add.group();
+     platform = game.add.group();
 
-     platforms.enableBody = true;
+     platform.enableBody = true;
 
-     ground = platforms.create(0, game.world.height - 64, "platform");
+     ground = platform.create(0, game.world.height - 64, "platform");
 
      ground.scale.setTo(2, 2);
 
-     platforms.create(400, 400, "platform");
-     platforms.create(-150, 250, "platform");
+     platform.create(400, 400, "platform");
+     platform.create(-150, 250, "platform");
 
-     platforms.setAll("body.immovable", true);
+     platform.setAll("body.immovable", true);
 
      player = game.add.sprite(32, game.world.height - 150, "exterminator");
 
@@ -75,11 +75,11 @@ var level1State = {
 
    update: function() {
 
-     hitPlatform = game.physics.arcade.collide(player, platforms);
-     game.physics.arcade.collide(stars, platforms);
+     hitPlatform = game.physics.arcade.collide(player, platform);
+     game.physics.arcade.collide(stars, platform);
      game.physics.arcade.overlap(player, stars, this.collectStar);
 
-     game.physics.arcade.collide(baddie, platforms);
+     game.physics.arcade.collide(baddie, platform);
      game.physics.arcade.overlap(player, baddie, this.hitBaddie);
 
 

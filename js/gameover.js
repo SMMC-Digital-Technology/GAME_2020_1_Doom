@@ -4,7 +4,6 @@
 var gameoverState = {
    create: function() {
       // create the screen
-   }
    game.stage.backgroundColor = "#290C4A";
      text = game.add.text(0, 0, "You have been defeated.", {
         fontSize: '48px',

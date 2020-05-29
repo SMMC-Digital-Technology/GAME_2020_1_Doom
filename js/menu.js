@@ -5,7 +5,8 @@
 var menuState = {
    create: function() {
       // create the scene
-  game.add.image(0, 0, "sky");
+  background = game.add.image(0, 0, "background");
+  background.scale.setTo(800/132,600/132);
   button = game.add.button(game.world.centerX, game.world.centerY, 'button');
   button.anchor.setTo(0.5, 0.5);
   button.onInputUp.add(this.startGame);
@@ -19,7 +20,5 @@ startGame: function() {
  game.global.lives = game.global.maxLives;
  game.state.start("level1");
 
-}
-}
-   }
+},
 };

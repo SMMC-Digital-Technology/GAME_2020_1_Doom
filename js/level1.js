@@ -16,7 +16,7 @@ var level1State = {
 
      ground = platform.create(0, game.world.height - 64, "platform");
 
-     ground.scale.setTo(2, 2);
+     ground.scale.setTo(50, 2);
 
      platform.create(400, 400, "platform");
      platform.create(-150, 250, "platform");
@@ -30,9 +30,6 @@ var level1State = {
      player.body.gravity.y = 300;
      player.body.bounce.y = 0.2;
      player.body.collideWorldBounds = true;
-
-     player.animations.add('left', [0, 1, 2, 3], 10, true);
-     player.animations.add('right', [5, 6, 7, 8], 10, true);
 
      healthBar = game.add.image(game.world.width - 20, 20, "healthbar");
      healthBar.anchor.setTo(1, 0);
@@ -76,12 +73,6 @@ var level1State = {
    update: function() {
 
      hitPlatform = game.physics.arcade.collide(player, platform);
-     game.physics.arcade.collide(stars, platform);
-     game.physics.arcade.overlap(player, stars, this.collectStar);
-
-     game.physics.arcade.collide(baddie, platform);
-     game.physics.arcade.overlap(player, baddie, this.hitBaddie);
-
 
      if (cursors.left.isDown) {
 
@@ -110,5 +101,6 @@ var level1State = {
      } else {
        baddie.body.velocity.x = 0;
      }
-}
+},
+
 };

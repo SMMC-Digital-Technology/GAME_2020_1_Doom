@@ -23,7 +23,8 @@ var level1State = {
 
      platform.setAll("body.immovable", true);
 
-     player = game.add.sprite(32, game.world.height - 150, "exterminator");
+     player = game.add.sprite(29, game.world.height - 100, "exterminator");
+     player.scale.setTo(1, 1);
 
      game.physics.arcade.enable(player);
 
@@ -36,43 +37,26 @@ var level1State = {
      healthBar.width = game.global.lives / game.global.maxLives * 200;
      cursors = game.input.keyboard.createCursorKeys();
 
-     baddie = game.add.sprite(600, 350, "ant");
+     baddie = game.add.sprite(600, 250, "ant");
      game.physics.arcade.enable(baddie);
      baddie.body.gravity.y = 300;
      baddie.body.bounce.y = 0.2;
      baddie.body.collideWorldBounds = true;
      baddie.animations.add('left', [0, 1], 10, true);
      baddie.animations.add('right', [2, 3], 10, true);
-
-     baddie2 = game.add.sprite(200, 350, "bee");
-     game.physics.arcade.enable(baddie2);
-     baddie2.body.gravity.y = 300;
-     baddie2.body.bounce.y = 0.2;
-     baddie2.body.collideWorldBounds = true;
-     baddie2.animations.add('left', [0, 1], 10, true);
-     baddie2.animations.add('right', [2, 3], 10, true);
-
-     baddie3 = game.add.sprite(400, 550, "snail");
-     game.physics.arcade.enable(baddie3);
-     baddie3.body.gravity.y = 300;
-     baddie3.body.bounce.y = 0.2;
-     baddie3.body.collideWorldBounds = true;
-     baddie3.animations.add('left', [0, 1], 10, true);
-     baddie3.animations.add('right', [2, 3], 10, true);
+     baddie.scale.setTo(1, 1)
 
      scoreText = game.add.text(16, 16, "Score: " + game.global.score, {
        fontSize: '32px',
        fill: '#000'
      });
-
-     collectSound = game.add.audio("collect");
-
-
    },
 
    update: function() {
 
      hitPlatform = game.physics.arcade.collide(player, platform);
+     game.physics.arcade.collide(baddie, platform);
+     game.physics.arcade.overlap(player, baddie, this.hitBaddie);
 
      if (cursors.left.isDown) {
 
@@ -101,6 +85,16 @@ var level1State = {
      } else {
        baddie.body.velocity.x = 0;
      }
-},
+   },
 
-};
+   hitBaddie: function(player, baddie) {
+     if (player.body.touching.right) {
+       player.x -= 32;
+     } else if (player.body.touching.left) {
+       player.x += 32;
+     } else {
+       player.body.velocity.y = -350;
+     }
+     level1State.removeLives(1);
+   },
+ };

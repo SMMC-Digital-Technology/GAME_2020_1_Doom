@@ -42,8 +42,8 @@ var level1State = {
      baddie.body.gravity.y = 300;
      baddie.body.bounce.y = 0.2;
      baddie.body.collideWorldBounds = true;
-     baddie.animations.add('left', [0, 1], 10, true);
-     baddie.animations.add('right', [2, 3], 10, true);
+     //baddie.animations.add('left', [0, 1], 10, true);
+     //baddie.animations.add('right', [2, 3], 10, true);
      baddie.scale.setTo(1, 1)
 
      scoreText = game.add.text(16, 16, "Score: " + game.global.score, {
@@ -78,14 +78,25 @@ var level1State = {
      var distance = player.x - baddie.x;
      if (distance < 0 && distance > -100 && baddie.x > 400) {
        baddie.body.velocity.x = -100;
-       baddie.animations.play("left");
+       //baddie.animations.play("left");
+       baddie.scale.x = 1;
      } else if (distance > 0 && distance < 100 && baddie.x < game.world.width) {
        baddie.body.velocity.x = 100;
-       baddie.animations.play("right");
+       //baddie.animations.play("right");
+       baddie.scale.x = -1;
      } else {
        baddie.body.velocity.x = 0;
      }
    },
+
+   removeLives: function(lives) {
+  game.global.lives -= lives;
+  if (game.global.lives <= 0) {
+    game.state.start("gameover");
+  } else {
+    healthBar.width = game.global.lives / game.global.maxLives * 200;
+  }
+},
 
    hitBaddie: function(player, baddie) {
      if (player.body.touching.right) {

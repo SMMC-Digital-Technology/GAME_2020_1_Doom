@@ -63,10 +63,12 @@ var level1State = {
        player.body.velocity.x = -150;
        player.animations.play('left');
      } else if (cursors.right.isDown) {
+       player.scale.x = -1;
 
        player.body.velocity.x = 150;
        player.animations.play('right');
      } else {
+       player.scale.x = 1;
 
        player.body.velocity.x = 0;
        player.animations.stop();

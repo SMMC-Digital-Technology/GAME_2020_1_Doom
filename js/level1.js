@@ -18,8 +18,12 @@ var level1State = {
 
      ground.scale.setTo(50, 2);
 
-     platform.create(400, 400, "platform");
+     let p = platform.create(400, 400, "platform");
+     p.scale.setTo(8, 1);
+
      platform.create(-150, 250, "platform");
+     let p1 = platform.create(150, 300, "platform");
+     p1.scale.setTo(5, 1);
 
      platform.setAll("body.immovable", true);
 
@@ -37,7 +41,7 @@ var level1State = {
      healthBar.width = game.global.lives / game.global.maxLives * 200;
      cursors = game.input.keyboard.createCursorKeys();
 
-     baddie = game.add.sprite(600, 250, "ant");
+     baddie = game.add.sprite(500, 250, "ant");
      game.physics.arcade.enable(baddie);
      baddie.body.gravity.y = 300;
      baddie.body.bounce.y = 0.2;

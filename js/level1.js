@@ -48,7 +48,7 @@ var level1State = {
      baddie.body.collideWorldBounds = true;
      //baddie.animations.add('left', [0, 1], 10, true);
      //baddie.animations.add('right', [2, 3], 10, true);
-     baddie.scale.setTo(1, 1)
+     baddie.scale.setTo(0.7, 1)
 
      scoreText = game.add.text(16, 16, "Score: " + game.global.score, {
        fontSize: '32px',

@@ -8,7 +8,8 @@
 var level1State = {
 
    create: function() {
-     game.add.image(0, 0, "background");
+     let b = game.add.image(0, 0, "background");
+     b.scale.setTo(800/3000, 600/3000);
 
      platform = game.add.group();
 
@@ -41,14 +42,13 @@ var level1State = {
      healthBar.width = game.global.lives / game.global.maxLives * 200;
      cursors = game.input.keyboard.createCursorKeys();
 
-     baddie = game.add.sprite(500, 250, "ant");
+     baddie = game.add.sprite(600, 250, "ant");
      game.physics.arcade.enable(baddie);
      baddie.body.gravity.y = 300;
      baddie.body.bounce.y = 0.2;
      baddie.body.collideWorldBounds = true;
      //baddie.animations.add('left', [0, 1], 10, true);
      //baddie.animations.add('right', [2, 3], 10, true);
-     baddie.scale.setTo(0.7, 1)
 
      scoreText = game.add.text(16, 16, "Score: " + game.global.score, {
        fontSize: '32px',

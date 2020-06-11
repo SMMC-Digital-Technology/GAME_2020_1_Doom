@@ -12,7 +12,11 @@ var loadState = {
     game.load.image("snail", "assets/snail.png");
     game.load.image("exterminator", "assets/Exterminator.png", 32, 48);
     game.load.image("platform", "assets/platform.png");
-    game.load.image("background", "assets/pixil-frame-0.png");
+    game.load.image("background", "assets/background.png");
+    game.load.image("button", "assets/button.png");
+    game.load.image("health box", "assets/health box.png");
+    game.load.image("heart", "assets/heart.png");
+
 
 
           // load all assets

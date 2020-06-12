@@ -14,7 +14,7 @@ var loadState = {
     game.load.image("platform", "assets/platform.png");
     game.load.image("background", "assets/background.png");
     game.load.image("button", "assets/button.png");
-    game.load.image("health box", "assets/health box.png");
+    game.load.image("healthbox", "assets/health box.png");
     game.load.image("heart", "assets/heart.png");
 
 

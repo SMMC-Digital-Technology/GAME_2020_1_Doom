@@ -37,11 +37,20 @@ var level1State = {
      player.body.bounce.y = 0.2;
      player.body.collideWorldBounds = true;
 
-     healthBar = game.add.image(game.world.width - 20, 20, "healthbar");
-     healthBar.anchor.setTo(1, 0);
-     healthBar.width = game.global.lives / game.global.maxLives * 200;
+     heart = game.add.image(game.world.width - 20, 20, "heart");
+     heart.anchor.setTo(1, 0);
+     heart.width = game.global.lives / game.global.maxLives * 200;
      cursors = game.input.keyboard.createCursorKeys();
 
+     healthbox = game.add.group();
+healthbox.enableBody = true;
+
+for (let i = 0; i < 1; i++) {
+  healthboxs = healthbox.create(game.rnd.integerInRange(300,500), -22, "healthbox");
+  healthboxs.body.gravity.y = 6;
+
+  healthboxs.body.bounce.y = 0.7 + Math.random() * 0.3;
+}
      baddie = game.add.sprite(600, 250, "ant");
      game.physics.arcade.enable(baddie);
      baddie.body.gravity.y = 300;
@@ -61,6 +70,8 @@ var level1State = {
      hitPlatform = game.physics.arcade.collide(player, platform);
      game.physics.arcade.collide(baddie, platform);
      game.physics.arcade.overlap(player, baddie, this.hitBaddie);
+     game.physics.arcade.collide(healthbox, platform);
+     game.physics.arcade.overlap(player, healthbox, this.collectHealthbox);
 
      if (cursors.left.isDown) {
 
@@ -100,7 +111,7 @@ var level1State = {
   if (game.global.lives <= 0) {
     game.state.start("gameover");
   } else {
-    healthBar.width = game.global.lives / game.global.maxLives * 200;
+    heart.width = game.global.lives / game.global.maxLives * 200;
   }
 },
 
@@ -114,4 +125,19 @@ var level1State = {
      }
      level1State.removeLives(1);
    },
+
+   collectHealthbox: function(player, healthboxs) {
+
+  game.global.score += 10;
+
+  scoreText.text = "Score: " + game.global.score;
+
+  healthboxs.kill();
+  if (healthbox.countLiving() == 0) {
+
+    game.time.events.add(1000, () => {
+      game.state.start("level2")
+    });
+  }
+},
  };

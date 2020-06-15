@@ -9,7 +9,6 @@ var menuState = {
   background.scale.setTo(800/132,600/132);
   button = game.add.button(game.world.centerX, game.world.centerY, 'button');
   button.anchor.setTo(0.5, 0.3);
-  button.scale.setTo(4, 4);
   button.onInputUp.add(this.startGame);
   var text = game.add.text(button.x, button.y, 'Start Game');
   text.anchor.setTo(0.5, 0.5);

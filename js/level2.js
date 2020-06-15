@@ -5,7 +5,7 @@
  * Make sure they have different file names and different state names.
  * level2State etc will work fine
  */
-var level1State = {
+var level2State = {
 
    create: function() {
      let b = game.add.image(0, 0, "background");

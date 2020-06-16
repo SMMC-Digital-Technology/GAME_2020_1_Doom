@@ -4,13 +4,11 @@ game.state.add('boot', bootState);
 game.state.add('load', loadState);
 game.state.add('menu', menuState);
 game.state.add('level1', level1State);
-
+game.state.add('level2', level2State);
 game.state.add('gameover', gameoverState);
 
 game.global = {
-   // set variables that travel between the states here
-   // eg score: 0;
-   // access using game.global, eg game.gloabl.score
+   score: 0,
    lives: 3,
    maxLives: 5
 };

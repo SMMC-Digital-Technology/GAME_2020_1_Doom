@@ -135,7 +135,7 @@ for (let i = 0; i < 12; i++) {
   if (bugsprays.countLiving() == 0) {
 
     game.time.events.add(1000, () => {
-      game.state.start("level2")
+      game.state.start("menu")
     });
   }
 },

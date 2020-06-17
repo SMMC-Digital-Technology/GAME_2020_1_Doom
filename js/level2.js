@@ -69,7 +69,7 @@ for (let i = 0; i < 12; i++) {
 
      hitPlatform = game.physics.arcade.collide(player, platform);
      game.physics.arcade.collide(baddie, platform);
-     //game.physics.arcade.overlap(player, baddie, this.hitBaddie);
+     game.physics.arcade.overlap(player, baddie, this.hitBaddie);
      game.physics.arcade.collide(bugsprays, platform);
      game.physics.arcade.overlap(player, bugsprays, this.collectBugspray);
 

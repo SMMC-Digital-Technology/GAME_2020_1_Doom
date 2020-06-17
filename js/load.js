@@ -16,7 +16,7 @@ var loadState = {
     game.load.image("heart", "assets/heart.png");
     game.load.image("bugspray", "assets/bugspray.png");
     game.load.spritesheet("exterminator", "assets/Exterminator.png", 32, 48);
-    game.load.spritesheet("ant", "assets/ant.png");
+    game.load.spritesheet("ant", "assets/ant.png", 104, 48);
           // load all assets
    },
 

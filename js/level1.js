@@ -69,7 +69,7 @@ for (let i = 0; i < 12; i++) {
 
      hitPlatform = game.physics.arcade.collide(player, platform);
      game.physics.arcade.collide(baddie, platform);
-     //game.physics.arcade.overlap(player, baddie, this.hitBaddie);
+     game.physics.arcade.overlap(player, baddie, this.hitBaddie);
      game.physics.arcade.collide(bugsprays, platform);
      game.physics.arcade.overlap(player, bugsprays, this.collectBugspray);
 
@@ -93,11 +93,11 @@ for (let i = 0; i < 12; i++) {
      }
      var distance = player.x - baddie.x;
      if (distance < 0 && distance > -100 && baddie.x > 400) {
-       baddie.body.velocity.x = -100;
+       baddie.body.velocity.x = -50;
        //baddie.animations.play("left");
        baddie.frame = 0;
      } else if (distance > 0 && distance < 100 && baddie.x < game.world.width) {
-       baddie.body.velocity.x = 100;
+       baddie.body.velocity.x = 50;
        //baddie.animations.play("right");
        baddie.frame = 2;
      } else {
